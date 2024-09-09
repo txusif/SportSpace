@@ -35,5 +35,5 @@ export function TypographyP({ children }: { children: React.ReactNode }) {
 }
 
 export function TypographyMuted({ children }: { children: React.ReactNode }) {
-  return <p className="text-sm text-muted-foreground">{children}</p>;
+  return <p className="text-sm">{children}</p>;
 }

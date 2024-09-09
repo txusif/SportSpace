@@ -1,7 +1,7 @@
 import { getTurf, getTurfs } from "@/lib/data-turf";
 
 import { Badge } from "@/components/ui/badge";
-import { Star } from "lucide-react";
+import { MapPin, Star } from "lucide-react";
 import {
   TypographyH1,
   TypographyMuted,
@@ -95,7 +95,7 @@ export default async function Turf({
               <p className="font-semibold mb-2 text-base text-muted-foreground">
                 Amenities
               </p>
-              <div className="grid grid-cols-[8rem_1fr] gap-2">
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-[8rem_8rem_8rem] gap-2">
                 {turf.amenities.split(",").map((amenity, i) => (
                   <Badge key={i} className="w-max" variant={"secondary"}>
                     {amenity}
@@ -105,12 +105,15 @@ export default async function Turf({
             </div>
           </CardContent>
 
-          <CardFooter className="flex flex-col lg:flex-row justify-start lg:justify-between gap-3 items-start lg:items-center">
-            <TypographyMuted>{turf.location.address}</TypographyMuted>
+          <CardFooter className="flex flex-col gap-4 items-start">
+            <div className="flex items-center gap-1.5">
+              <MapPin size={20} className="text-muted-foreground" />
+              <TypographyMuted>{turf.location.address}</TypographyMuted>
+            </div>
             <a
               href={turf.location.mapLink}
               target="_blank"
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 max-lg:ml-auto"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 ml-6"
             >
               Map view
             </a>
@@ -127,7 +130,7 @@ export default async function Turf({
           <h2 className="mt-6 text-primary scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
             Select Time Slot
           </h2>
-          <Card className="mt-2">
+          <Card className="mt-2 ">
             <CardHeader>
               <CardTitle>Book slot for your next cricket match</CardTitle>
             </CardHeader>

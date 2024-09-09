@@ -4,7 +4,7 @@ const Rules = ({ rules }: { rules: string }) => {
       <h2 className="text-primary scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         Rules
       </h2>
-      <div className="flex flex-col capitalize space-y-2">
+      <div className="flex flex-col capitalize space-y-2 mt-2">
         {rules.split(",").map((rule, i) => (
           <p key={i} className="">
             &mdash; {rule}

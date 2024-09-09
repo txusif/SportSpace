@@ -8,9 +8,9 @@ import "react-datepicker/dist/react-datepicker.css";
 const BookingCalender = () => {
   const [startDate, setStartDate] = useState(new Date());
 
-  let handleColor = (time: any) => {
-    return time.getHours() > 12 ? "text-green-400" : "text-red-400";
-  };
+  // let handleColor = (time: any) => {
+  //   return time.getHours() > 12 ? "text-green-400" : "text-blue-400";
+  // };
 
   const filterPassedTime = (time: any) => {
     const currentDate = new Date();
@@ -23,12 +23,12 @@ const BookingCalender = () => {
     <DatePicker
       selected={startDate}
       onChange={(date) => date && setStartDate(date)}
-      startDate={startDate}
       showTimeSelect
-      closeOnScroll={true}
-      dateFormat="MMMM d, yyyy h:mm aa"
-      timeClassName={handleColor}
+      // inline
       filterTime={filterPassedTime}
+      // startDate={startDate}
+      // closeOnScroll={true}
+      // timeClassName={handleColor}
       //   excludeDates={[
       //     { date: subDays(new Date(), 1), message: "This day is excluded" },
       //   ]}
