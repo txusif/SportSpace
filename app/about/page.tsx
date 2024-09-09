@@ -22,8 +22,8 @@ export default function AboutPage() {
             Discover vibrant, top-quality turfs designed to elevate your game.
             Nestled in prime locations, our turfs offer the perfect blend of
             convenience and premium experience, catering to players of all
-            levels. Whether it's a friendly match or a competitive showdown,
-            we&apos;ve got the perfect spot waiting for you.
+            levels. Whether it&apos;s a friendly match or a competitive
+            showdown, we&apos;ve got the perfect spot waiting for you.
           </p>
           <p>
             Our platform makes booking your ideal turf a breeze. No more
@@ -65,9 +65,9 @@ export default function AboutPage() {
         </h1>
         <div className="space-y-4">
           <p>
-            Since our inception, we've been dedicated to providing a seamless
-            turf booking experience that brings people together through the love
-            of the game. Our commitment is to quality, convenience, and
+            Since our inception, we&apos;ve been dedicated to providing a
+            seamless turf booking experience that brings people together through
+            the love of the game. Our commitment is to quality, convenience, and
             community—ensuring that every booking feels like a win.
           </p>
           <p>

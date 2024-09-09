@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
-import bgImage from "@/public/images/turf-background.jpg";
+// import bgImage from "@/public/images/turf-background.jpg";
 
 export default function HomePage() {
   return (

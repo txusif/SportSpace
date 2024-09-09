@@ -1,8 +1,8 @@
-import { getTurfs } from "@/lib/turfs";
+import { getTurfs } from "@/lib/data-turf";
 import TurfCard from "./TurfCard";
 
 export interface TurfProps {
-  id: string;
+  id: number;
   name: string;
   image: string;
   ratings: number;
@@ -15,10 +15,13 @@ export interface TurfProps {
     address: string;
     mapLink: string;
   };
+  surfaceType: string;
 }
 
 const TurfList = async ({ filter }: { filter: string }) => {
   const turfs = await getTurfs();
+
+  console.log(turfs);
 
   if (!turfs.length) return null;
 

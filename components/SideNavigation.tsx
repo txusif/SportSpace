@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { CalendarDays, House, LogOut, User } from "lucide-react";
+import { CalendarDays, House, User } from "lucide-react";
 import Link from "next/link";
 
 const navLinks = [
@@ -41,8 +41,6 @@ const SideNavigation = () => {
             </Link>
           </li>
         ))}
-
-       
       </ul>
     </nav>
   );

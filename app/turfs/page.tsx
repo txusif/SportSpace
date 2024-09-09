@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Turfs",
 };
 
+export const revalidate = 0; // 0 seconds ie no revalidation
+// export const revalidate = 3600; // 1 hour
+
 export default function TurfsPage({
   searchParams,
 }: {
@@ -33,7 +36,7 @@ export default function TurfsPage({
         <Filter />
       </div>
 
-      <Suspense fallback={<div>Loding</div>} key={filter}>
+      <Suspense fallback={<div>Loading</div>} key={filter}>
         <TurfList filter={filter} />
       </Suspense>
     </div>

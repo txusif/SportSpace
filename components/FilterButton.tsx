@@ -16,7 +16,7 @@ const FilterButton = ({
   return (
     <Button
       variant={filter === activeFilter ? "default" : "outline"}
-      size="sm"
+      size="default"
       onClick={() => handleFilter(filter)}
     >
       {children}
