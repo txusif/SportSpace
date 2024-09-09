@@ -1,6 +1,7 @@
 import Link from "next/link";
 // import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
+import { TypographyH1 } from "@/components/typography/Typography";
 // import bgImage from "@/public/images/turf-background.jpg";
 
 export default function HomePage() {
@@ -15,10 +16,8 @@ export default function HomePage() {
         className="object-cover object-center opacity-90"
       /> */}
 
-      <div className="relative z-10 text-center">
-        <h1 className="mb-8 text-2xl sm:text-3xl font-medium tracking-tight md:text-4xl lg:mb-10 lg:text-7xl">
-          Welcome to BookMyTurf
-        </h1>
+      <div className="relative z-10 text-center space-y-4">
+        <TypographyH1>Welcome to BookMyTurf</TypographyH1>
 
         <Link
           href="/turfs"

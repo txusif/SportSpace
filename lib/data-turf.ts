@@ -12,7 +12,7 @@ export async function getTurfs() {
 
     }
 
-    // await new Promise((res) => setTimeout(res, 2000));
+    // await new Promise((res) => setTimeout(res, 20000));
     return data;
 }
 
@@ -27,6 +27,8 @@ export async function getTurf(id: number) {
         console.error(error)
         notFound();
     }
+
+    // await new Promise((res) => setTimeout(res, 1000));
 
     return data;
 }
