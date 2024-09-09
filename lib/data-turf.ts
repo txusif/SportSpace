@@ -4,7 +4,7 @@ import supabase from "./supabase";
 export async function getTurfs() {
     const { data, error } = await supabase
         .from('turfs')
-        .select('id, name, image, ratings, football, cricket, discount, footballPrice, cricketPrice, location, surfaceType').order("name")
+        .select('id, name, images, ratings, football, cricket, discount, price, location, surfaceType').order("name")
 
     if (error) {
         console.error(error)

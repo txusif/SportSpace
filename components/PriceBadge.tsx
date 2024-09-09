@@ -3,7 +3,7 @@ import { TurfProps } from "./TurfList";
 import { Badge } from "./ui/badge";
 
 const PriceBadge = ({ turf }: { turf: TurfProps }) => {
-  const { cricket, discount, cricketPrice, footballPrice } = turf;
+  const { cricket, discount, price } = turf;
 
   return (
     <Badge variant={"priceBadge"}>
@@ -11,29 +11,29 @@ const PriceBadge = ({ turf }: { turf: TurfProps }) => {
         discount > 0 ? (
           <div className="flex gap-1 items-center">
             <span className="text-xl font-medium flex items-center">
-              <IndianRupee size={20} /> {cricketPrice - discount}
+              <IndianRupee size={20} /> {price - discount}
             </span>
             <span className="font-medium text-base text-muted-foreground line-through">
-              {cricketPrice}
+              {price}
             </span>
           </div>
         ) : (
           <span className="text-xl font-medium flex items-center">
-            <IndianRupee size={20} /> {cricketPrice}
+            <IndianRupee size={20} /> {price}
           </span>
         )
       ) : discount > 0 ? (
         <div className="flex gap-1 items-center">
           <span className="text-xl font-medium flex items-center">
-            <IndianRupee size={20} /> {footballPrice - discount}
+            <IndianRupee size={20} /> {price - discount}
           </span>
           <span className="font-medium text-base text-muted-foreground line-through">
-            {footballPrice}
+            {price}
           </span>
         </div>
       ) : (
         <span className="text-xl font-medium flex items-center">
-          <IndianRupee size={20} /> {footballPrice}
+          <IndianRupee size={20} /> {price}
         </span>
       )}
     </Badge>

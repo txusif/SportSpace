@@ -5,6 +5,7 @@ import Link from "next/link";
 import aboutFootball from "@/public/images/aboutFootball.jpg";
 import aboutTennis from "@/public/images/aboutTennis.jpg";
 import { buttonVariants } from "@/components/ui/button";
+import { TypographyP } from "@/components/typography/Typography";
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,24 +19,24 @@ export default function AboutPage() {
           Welcome to BookMyTurf
         </h1>
         <div className="space-y-4">
-          <p>
+          <TypographyP>
             Discover vibrant, top-quality turfs designed to elevate your game.
             Nestled in prime locations, our turfs offer the perfect blend of
             convenience and premium experience, catering to players of all
             levels. Whether it&apos;s a friendly match or a competitive
             showdown, we&apos;ve got the perfect spot waiting for you.
-          </p>
-          <p>
+          </TypographyP>
+          <TypographyP>
             Our platform makes booking your ideal turf a breeze. No more
             searching through endless options—just pick, book, and play. With
             real-time availability and exclusive deals, the field is always
             ready for you to take control and enjoy the game to its fullest.
-          </p>
-          <p>
+          </TypographyP>
+          <TypographyP>
             Join us and transform your play sessions into memorable moments,
             filled with action and excitement. From the first whistle to the
             final goal, your perfect game starts here.
-          </p>
+          </TypographyP>
         </div>
       </div>
 
@@ -64,19 +65,19 @@ export default function AboutPage() {
           Committed to Excellence Since Day One
         </h1>
         <div className="space-y-4">
-          <p>
+          <TypographyP>
             Since our inception, we&apos;ve been dedicated to providing a
             seamless turf booking experience that brings people together through
             the love of the game. Our commitment is to quality, convenience, and
             community—ensuring that every booking feels like a win.
-          </p>
-          <p>
+          </TypographyP>
+          <TypographyP>
             With a passionate team behind every turf, we strive to maintain the
             highest standards and continuously enhance our offerings. Because
             here, you&apos;re not just booking a turf; you&apos;re joining a
             community of sports enthusiasts who share the same passion for play.
             Step onto our fields and feel the difference.
-          </p>
+          </TypographyP>
           <div>
             <Link
               href="/turfs"

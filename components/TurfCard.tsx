@@ -1,12 +1,13 @@
 import { TurfProps } from "./TurfList";
 
 import Image from "next/image";
-import { buttonVariants } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import { Badge } from "./ui/badge";
 import Link from "next/link";
 import PriceBadge from "./PriceBadge";
 
+import { buttonVariants } from "@/components/ui/button";
+import { TypographyH4 } from "./typography/Typography";
 import {
   Card,
   CardContent,
@@ -17,12 +18,11 @@ import {
 } from "@/components/ui/card";
 
 const TurfCard = ({ turf }: { turf: TurfProps }) => {
-  console.log(turf);
   return (
     <Card className="grid sm:grid-cols-1 lg:grid-cols-2 flex-1">
       <div className="relative max-lg:h-[200px]">
         <Image
-          src={turf.image}
+          src={turf.images[0]}
           alt={`Image of ${turf.name}`}
           fill
           className="object-cover max-lg:rounded-t-md lg:rounded-l-md"
@@ -31,7 +31,8 @@ const TurfCard = ({ turf }: { turf: TurfProps }) => {
       <div>
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle>{turf.name}</CardTitle>
+            {/* <CardTitle>{turf.name}</CardTitle>*/}
+            <TypographyH4>{turf.name}</TypographyH4>
 
             <Badge variant={"rating"}>
               <Star fill="yellow" size={18} strokeWidth={0} />

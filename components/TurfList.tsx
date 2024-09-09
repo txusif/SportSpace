@@ -4,13 +4,12 @@ import TurfCard from "./TurfCard";
 export interface TurfProps {
   id: number;
   name: string;
-  image: string;
+  images: string[];
   ratings: number;
   football: boolean;
   cricket: boolean;
   discount: number;
-  footballPrice: number;
-  cricketPrice: number;
+  price: number;
   location: {
     address: string;
     mapLink: string;

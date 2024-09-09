@@ -33,3 +33,7 @@ export function TypographyH4({ children }: { children: React.ReactNode }) {
 export function TypographyP({ children }: { children: React.ReactNode }) {
   return <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>;
 }
+
+export function TypographyMuted({ children }: { children: React.ReactNode }) {
+  return <p className="text-sm text-muted-foreground">{children}</p>;
+}
