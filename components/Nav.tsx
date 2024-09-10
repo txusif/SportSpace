@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ToggleTheme } from "./ToggleTheme";
 import { usePathname } from "next/navigation";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Menu } from "lucide-react";
+import { LuMenu } from "react-icons/lu";
 import { Button } from "./ui/button";
 import Signout from "./Signout";
 
@@ -43,7 +43,7 @@ const Nav = () => {
         <Sheet>
           <SheetTrigger className="flex items-center justify-center" asChild>
             <Button variant="outline" size="icon">
-              <Menu size={28} className="text-primary" />
+              <LuMenu size={28} className="text-primary" />
             </Button>
           </SheetTrigger>
           <SheetContent className="flex flex-col items-center justify-center gap-24">

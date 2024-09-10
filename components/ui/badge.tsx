@@ -18,6 +18,8 @@ const badgeVariants = cva(
         rating:
           "border-transparent bg-secondary text-secondary-foreground flex gap-1 items-center",
         priceBadge: "border-none px-0",
+        timeSlot:
+          "border-transparent bg-secondary text-secondary-foreground flex justify-center h-8",
       },
     },
     defaultVariants: {

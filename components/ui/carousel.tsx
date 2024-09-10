@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
@@ -217,7 +217,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeft strokeWidth={2} />
+      <LuChevronLeft strokeWidth={2} />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -246,7 +246,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRight strokeWidth={2} />
+      <LuChevronRight strokeWidth={2} />
       <span className="sr-only">Next slide</span>
     </Button>
   );

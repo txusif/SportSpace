@@ -1,7 +1,7 @@
 import { TurfProps } from "./TurfList";
 
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { LuStar } from "react-icons/lu";
 import { Badge } from "./ui/badge";
 import Link from "next/link";
 import PriceBadge from "./PriceBadge";
@@ -35,7 +35,7 @@ const TurfCard = ({ turf }: { turf: TurfProps }) => {
             <TypographyH4>{turf.name}</TypographyH4>
 
             <Badge variant={"rating"}>
-              <Star fill="yellow" size={18} strokeWidth={0} />
+              <LuStar fill="yellow" size={18} strokeWidth={0} />
               <p className="">{turf.ratings}</p>
             </Badge>
           </div>
@@ -45,7 +45,7 @@ const TurfCard = ({ turf }: { turf: TurfProps }) => {
         </CardHeader>
         {/* <CardDescription>{turf.surfaceType}</CardDescription> */}
         <CardFooter className="flex justify-between">
-          <PriceBadge turf={turf} />
+          <PriceBadge prices={turf.prices} />
           <Link
             href={`/turfs/${turf.id}`}
             className={buttonVariants({ variant: "default" })}

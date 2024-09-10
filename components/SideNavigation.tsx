@@ -1,24 +1,24 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { CalendarDays, House, User } from "lucide-react";
+import { LuCalendarDays, LuHome, LuUser } from "react-icons/lu";
 import Link from "next/link";
 
 const navLinks = [
   {
     name: "Home",
     href: "/account",
-    icon: <House size={20} />,
+    icon: <LuHome size={20} />,
   },
   {
     name: "Bookings",
     href: "/account/bookings",
-    icon: <CalendarDays size={20} />,
+    icon: <LuCalendarDays size={20} />,
   },
   {
     name: "Profile",
     href: "/account/profile",
-    icon: <User size={20} />,
+    icon: <LuUser size={20} />,
   },
 ];
 

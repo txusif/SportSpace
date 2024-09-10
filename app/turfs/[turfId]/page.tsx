@@ -1,11 +1,8 @@
 import { getTurf, getTurfs } from "@/lib/data-turf";
 
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Star } from "lucide-react";
-import {
-  TypographyH1,
-  TypographyMuted,
-} from "@/components/typography/Typography";
+import { LuMapPin, LuStar } from "react-icons/lu";
+import { TypographyH1 } from "@/components/typography/Typography";
 import {
   Card,
   CardContent,
@@ -15,10 +12,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import ImageCarousel from "@/components/ImageCarousel";
-import SelectSport from "@/components/SelectSport";
 import BookingCalender from "@/components/BookingCalender";
 import Rules from "@/components/Rules";
 import Reviews from "@/components/Reviews";
+import TimeSlot from "@/components/TimeSlot";
+import LoginMessage from "@/components/LoginMessage";
+import BookingDetails from "@/components/BookingDetails";
 
 export const revalidate = 0;
 
@@ -48,15 +47,18 @@ export interface TurfProps {
   football: boolean;
   cricket: boolean;
   rules: string;
-  dayPrice: number;
-  nightPrice: number;
+  prices: {
+    dayPrice: number;
+    eveningPrice: number;
+    nightPrice: number;
+  };
   discount: number;
   ratings: number;
   location: {
     address: string;
     mapLink: string;
   };
-  price: number;
+
   contactInfo: { phone: string; email: string };
   availability: { openTime: string; closeTime: string };
   surfaceType: string;
@@ -81,7 +83,7 @@ export default async function Turf({
               <TypographyH1>{turf.name}</TypographyH1>
 
               <Badge variant={"rating"}>
-                <Star fill="yellow" size={18} strokeWidth={0} />
+                <LuStar fill="yellow" size={18} strokeWidth={0} />
                 <p className="">{turf.ratings}</p>
               </Badge>
             </div>
@@ -107,8 +109,8 @@ export default async function Turf({
 
           <CardFooter className="flex flex-col gap-4 items-start">
             <div className="flex items-center gap-1.5">
-              <MapPin size={20} className="text-muted-foreground" />
-              <TypographyMuted>{turf.location.address}</TypographyMuted>
+              <LuMapPin size={20} className="text-muted-foreground" />
+              <p className="tetxt-sm">{turf.location.address}</p>
             </div>
             <a
               href={turf.location.mapLink}
@@ -121,26 +123,37 @@ export default async function Turf({
         </div>
       </Card>
 
+      {/* Rules */}
       <Rules rules={turf.rules} />
 
-      {turf.football && turf.cricket ? (
-        <SelectSport />
-      ) : (
-        <div className="mt-10 sm:w-[400px]">
-          <h2 className="mt-6 text-primary scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-            Select Time Slot
-          </h2>
-          <Card className="mt-2 ">
-            <CardHeader>
-              <CardTitle>Book slot for your next cricket match</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <BookingCalender />
+      {/* Booking */}
+      <div className="mt-10">
+        <h2 className="text-primary scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+          Book Your Slot
+        </h2>
+
+        <div className="flex flex-col lg:flex-row gap-6 mt-2">
+          <div>
+            <Card className="w-max">
+              <CardContent className="p-4 flex flex-col md:flex-row gap-6 md:gap-8">
+                {/* Calender */}
+                <BookingCalender />
+                {/* Time slot */}
+                <TimeSlot prices={turf.prices} />
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Booking details */}
+          <Card className="hidden lg:flex grow">
+            <CardContent className="p-4 flex w-full justify-center items-center">
+              {!true ? <LoginMessage /> : <BookingDetails />}
             </CardContent>
           </Card>
         </div>
-      )}
+      </div>
 
+      {/* Reviews */}
       <Reviews />
     </div>
   );

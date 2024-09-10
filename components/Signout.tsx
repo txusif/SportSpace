@@ -1,13 +1,13 @@
 import React from "react";
 import { Button } from "./ui/button";
-import { LogOut } from "lucide-react";
+import { LuLogOut } from "react-icons/lu";
 
 const Signout = () => {
   return (
     <Button className="flex items-center gap-2">
       <span className="">Signout </span>
 
-      <LogOut size={18} />
+      <LuLogOut size={18} />
     </Button>
   );
 };

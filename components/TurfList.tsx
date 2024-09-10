@@ -9,7 +9,11 @@ export interface TurfProps {
   football: boolean;
   cricket: boolean;
   discount: number;
-  price: number;
+  prices: {
+    dayPrice: number;
+    eveningPrice: number;
+    nightPrice: number;
+  };
   location: {
     address: string;
     mapLink: string;
@@ -19,8 +23,6 @@ export interface TurfProps {
 
 const TurfList = async ({ filter }: { filter: string }) => {
   const turfs = await getTurfs();
-
-  console.log(turfs);
 
   if (!turfs.length) return null;
 

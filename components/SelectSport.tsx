@@ -1,13 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BookingCalender from "./BookingCalender";
+import TimeSlot from "./TimeSlot";
+import { TurfProps } from "@/app/turfs/[turfId]/page";
 
-const SelectSport = () => {
+const SelectSport = ({ prices }: { prices: TurfProps["prices"] }) => {
   return (
-    <div className="mt-10">
-      <h2 className="text-primary scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+    <div>
+      {/* <h2 className="text-primary scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         Select Sport
-      </h2>
+      </h2> */}
 
       <Tabs defaultValue="cricket" className="sm:w-[400px] mt-2">
         <TabsList className="grid w-full grid-cols-2">
@@ -15,27 +17,23 @@ const SelectSport = () => {
           <TabsTrigger value="football">Football</TabsTrigger>
         </TabsList>
 
-        <h2 className="mt-6 text-primary scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-          Select Time Slot
-        </h2>
+        {/* <h2 className="mt-10 text-primary scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+          Select Date
+        </h2> */}
 
         <TabsContent value="cricket">
-          <Card>
-            <CardHeader>
-              <CardTitle>Book slot for your next cricket match</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2">
+          <Card className="w-max">
+            <CardContent className="p-4 flex flex-col md:flex-row gap-6 md:gap-12">
               <BookingCalender />
+              <TimeSlot prices={prices} />
             </CardContent>
           </Card>
         </TabsContent>
         <TabsContent value="football">
-          <Card>
-            <CardHeader>
-              <CardTitle>Book slot for your next football match</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2">
+          <Card className="w-max">
+            <CardContent className="p-4 flex flex-col md:flex-row gap-6 md:gap-12">
               <BookingCalender />
+              <TimeSlot prices={prices} />
             </CardContent>
           </Card>
         </TabsContent>

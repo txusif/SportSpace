@@ -35,5 +35,17 @@ export function TypographyP({ children }: { children: React.ReactNode }) {
 }
 
 export function TypographyMuted({ children }: { children: React.ReactNode }) {
-  return <p className="text-sm">{children}</p>;
+  return <p className="text-sm text-muted-foreground">{children}</p>;
+}
+
+export function TypographyMutedBold({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <p className="text-sm font-medium text-muted-foreground flex items-center gap-1">
+      {children}
+    </p>
+  );
 }
