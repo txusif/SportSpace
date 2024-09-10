@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { LuCalendarDays, LuHome, LuUser } from "react-icons/lu";
 import Link from "next/link";
+import LoginButton from "./LoginLogoutButton";
 
 const navLinks = [
   {
@@ -41,6 +42,10 @@ const SideNavigation = () => {
             </Link>
           </li>
         ))}
+
+        <li className="mt-auto hidden md:flex">
+          <LoginButton />
+        </li>
       </ul>
     </nav>
   );

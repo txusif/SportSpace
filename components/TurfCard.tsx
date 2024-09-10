@@ -36,7 +36,7 @@ const TurfCard = ({ turf }: { turf: TurfProps }) => {
 
             <Badge variant={"rating"}>
               <LuStar fill="yellow" size={18} strokeWidth={0} />
-              <p className="">{turf.ratings}</p>
+              <p className="">{turf.rating}</p>
             </Badge>
           </div>
           <CardDescription className="pt-3">

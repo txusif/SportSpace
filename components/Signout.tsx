@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "./ui/button";
 import { LuLogOut } from "react-icons/lu";
+import { Button } from "./ui/button";
 
 const Signout = () => {
   return (

@@ -5,12 +5,12 @@ export interface TurfProps {
   id: number;
   name: string;
   images: string[];
-  ratings: number;
+  rating: number;
   football: boolean;
   cricket: boolean;
   discount: number;
   prices: {
-    dayPrice: number;
+    morningPrice: number;
     eveningPrice: number;
     nightPrice: number;
   };

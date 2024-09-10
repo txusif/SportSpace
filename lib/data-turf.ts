@@ -1,10 +1,12 @@
+import { createClient } from "@/utils/supabase/client";
 import { notFound } from "next/navigation";
-import supabase from "./supabase";
 
 export async function getTurfs() {
+    const supabase = createClient();
+
     const { data, error } = await supabase
         .from('turfs')
-        .select('id, name, images, ratings, football, cricket, discount, prices, location, surfaceType').order("name")
+        .select('id, name, images, rating, football, cricket, discount, prices, location, surfaceType').order("name")
 
     if (error) {
         console.error(error)
@@ -17,6 +19,8 @@ export async function getTurfs() {
 }
 
 export async function getTurf(id: number) {
+    const supabase = createClient();
+    
     const { data, error } = await supabase
         .from('turfs')
         .select('*')

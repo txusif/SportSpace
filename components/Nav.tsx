@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 import { LuMenu } from "react-icons/lu";
 import { Button } from "./ui/button";
-import Signout from "./Signout";
+import LoginButton from "./LoginLogoutButton";
 
 export const navLinks = [
   { label: "turfs", href: "/turfs" },
@@ -77,8 +77,13 @@ const Nav = () => {
                   </li>
                 ))}
 
-                <Signout />
-                <ToggleTheme />
+                <SheetClose>
+                  <LoginButton />
+                </SheetClose>
+
+                <SheetClose>
+                  <ToggleTheme />
+                </SheetClose>
               </ul>
             </nav>
           </SheetContent>

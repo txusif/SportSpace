@@ -6,7 +6,7 @@ const PriceBadge = ({ prices }: { prices: TurfProps["prices"] }) => {
   return (
     <Badge variant={"priceBadge"}>
       <span className="text-xl font-medium flex items-center">
-        <LuIndianRupee size={20} /> {prices.dayPrice}
+        <LuIndianRupee size={20} /> {prices.morningPrice}
       </span>
     </Badge>
   );

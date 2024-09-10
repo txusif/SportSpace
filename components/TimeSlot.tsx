@@ -15,7 +15,7 @@ const TimeSlot = ({ prices }: { prices: TurfProps["prices"] }) => {
         <Slot
           icon={<BsFillSunriseFill />}
           slotName="Morning slot"
-          price={prices.dayPrice}
+          price={prices.morningPrice}
           timeSlots={[
             "7:00 - 8:00",
             "8:00 - 9:00",
@@ -26,7 +26,7 @@ const TimeSlot = ({ prices }: { prices: TurfProps["prices"] }) => {
         <Slot
           icon={<BsFillSunFill />}
           slotName="Afternoon slot"
-          price={prices.dayPrice}
+          price={prices.morningPrice}
           timeSlots={[
             "12:00 - 13:00",
             "13:00 - 14:00",

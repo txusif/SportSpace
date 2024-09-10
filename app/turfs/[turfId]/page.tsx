@@ -48,12 +48,12 @@ export interface TurfProps {
   cricket: boolean;
   rules: string;
   prices: {
-    dayPrice: number;
+    morningPrice: number;
     eveningPrice: number;
     nightPrice: number;
   };
   discount: number;
-  ratings: number;
+  rating: number;
   location: {
     address: string;
     mapLink: string;
@@ -84,7 +84,7 @@ export default async function Turf({
 
               <Badge variant={"rating"}>
                 <LuStar fill="yellow" size={18} strokeWidth={0} />
-                <p className="">{turf.ratings}</p>
+                <p className="">{turf.rating}</p>
               </Badge>
             </div>
             <CardDescription className="pt-2">
@@ -147,7 +147,7 @@ export default async function Turf({
           {/* Booking details */}
           <Card className="hidden lg:flex grow">
             <CardContent className="p-4 flex w-full justify-center items-center">
-              {!true ? <LoginMessage /> : <BookingDetails />}
+              {true ? <LoginMessage /> : <BookingDetails />}
             </CardContent>
           </Card>
         </div>
