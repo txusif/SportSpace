@@ -7,8 +7,6 @@ import { useAuth } from "@/context/AuthContext";
 const User = ({ path }: { path: string }) => {
   const { user } = useAuth();
 
-  console.log(user);
-
   if (user === null) {
     return (
       <Link
@@ -30,12 +28,12 @@ const User = ({ path }: { path: string }) => {
         <Image
           src={user.user_metadata.avatar_url}
           alt="User Avatar"
-          width={40}
-          height={40}
+          width={36}
+          height={36}
           className="rounded-full"
         />
       ) : (
-        <div className="flex justify-center items-center bg-secondary rounded-full w-[40px] h-[40px]">
+        <div className="flex justify-center items-center bg-secondary rounded-full w-[36px] h-[36px]">
           {user.user_metadata.full_name
             .split(" ")
             .map((name: string) => name[0])

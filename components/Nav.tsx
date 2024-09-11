@@ -81,14 +81,16 @@ const Nav = () => {
                   </li>
                 ))}
 
-                <li>
+                <li> 
+                <SheetClose asChild>
                   <User path={path} />
+                </SheetClose>
                 </li>
 
                 <SheetClose>
                   <LoginButton />
                 </SheetClose>
-                
+
                 <SheetClose>
                   <ToggleTheme />
                 </SheetClose>
