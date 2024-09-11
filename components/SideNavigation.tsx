@@ -33,8 +33,8 @@ const SideNavigation = () => {
           <li key={i}>
             <Link
               href={link.href}
-              className={`flex flex-col md:flex-row items-center gap-2 md:gap-4 rounded-l-md px-5 py-3 font-semibold text-sm md:text-lg hover:bg-secondary transition-colors duration-300 ${
-                link.href === path ? "text-primary" : ""
+              className={`flex flex-col md:flex-row items-center gap-2 md:gap-4 rounded-l-md px-5 py-3 font-semibold text-sm md:text-lg hover:text-primary transition-colors duration-300 ${
+                link.href === path ? "text-primary bg-secondary" : ""
               }`}
             >
               {link.icon}
@@ -43,7 +43,7 @@ const SideNavigation = () => {
           </li>
         ))}
 
-        <li className="mt-auto hidden md:flex">
+        <li className="mt-auto px-5 py-3 hidden md:flex">
           <LoginButton />
         </li>
       </ul>

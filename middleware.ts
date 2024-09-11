@@ -3,7 +3,7 @@ import { updateSession } from '@/utils/supabase/middleware'
 import { createClient } from './utils/supabase/server'
 
 // 1. Specify protected routes
-const protectedRoutes = ['/account', '/account/profile', , '/account/bookings']
+const protectedRoutes = ['/account', '/account/profile', '/account/bookings']
 
 export async function middleware(req: NextRequest) {
     const supabase = createClient();

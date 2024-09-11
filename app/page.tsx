@@ -1,10 +1,9 @@
 import Link from "next/link";
 // import Image from "next/image";
+
 import { buttonVariants } from "@/components/ui/button";
 import { TypographyH1 } from "@/components/typography/Typography";
-// import { redirect } from "next/navigation";
 // import bgImage from "@/public/images/turf-background.jpg";
-// import LoginButton from "@/components/LoginLogoutButton";
 
 export default function HomePage() {
   return (
@@ -17,7 +16,6 @@ export default function HomePage() {
         alt="Turf background image"
         className="object-cover object-center opacity-90"
       /> */}
-      {/* <LoginButton /> */}
 
       <div className="relative z-10 text-center space-y-4">
         <TypographyH1>Welcome to BookMyTurf</TypographyH1>
