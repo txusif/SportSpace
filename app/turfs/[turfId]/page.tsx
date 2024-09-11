@@ -9,15 +9,14 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  // CardTitle,
 } from "@/components/ui/card";
 import ImageCarousel from "@/components/ImageCarousel";
 import BookingCalender from "@/components/BookingCalender";
 import Rules from "@/components/Rules";
 import Reviews from "@/components/Reviews";
 import TimeSlot from "@/components/TimeSlot";
-import LoginMessage from "@/components/LoginMessage";
-import BookingDetails from "@/components/BookingDetails";
+import Booking from "@/components/Booking";
+import { getAllBookings } from "@/lib/data-bookings";
 
 export const revalidate = 0;
 
@@ -71,6 +70,8 @@ export default async function Turf({
 }) {
   const turf: TurfProps = await getTurf(Number(turfId));
 
+  const bookings = await getAllBookings();
+
   return (
     <div>
       <Card className="grid sm:grid-cols-1 lg:grid-cols-2 flex-1 h-max">
@@ -80,7 +81,9 @@ export default async function Turf({
           <CardHeader>
             <div className="flex items-start justify-between">
               {/* <CardTitle>{turf.name}</CardTitle> */}
-              <TypographyH1>{turf.name}</TypographyH1>
+              <TypographyH1>
+                {turf.name} ({bookings.length})
+              </TypographyH1>
 
               <Badge variant={"rating"}>
                 <LuStar fill="yellow" size={18} strokeWidth={0} />
@@ -147,7 +150,7 @@ export default async function Turf({
           {/* Booking details */}
           <Card className="hidden lg:flex grow">
             <CardContent className="p-4 flex w-full justify-center items-center">
-              {true ? <LoginMessage /> : <BookingDetails />}
+              <Booking />
             </CardContent>
           </Card>
         </div>

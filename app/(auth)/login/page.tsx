@@ -2,7 +2,7 @@ import { LoginForm } from "./components/LoginForm";
 
 const LoginPage = () => {
   return (
-    <div className="flex items-center">
+    <div className="mt-16">
       <LoginForm />
     </div>
   );

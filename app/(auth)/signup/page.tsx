@@ -2,7 +2,7 @@ import { SignUpForm } from "./components/SignUpForm";
 
 const SignUpPage = () => {
   return (
-    <div className="flex items-center">
+    <div className="mt-16">
       <SignUpForm />
     </div>
   );

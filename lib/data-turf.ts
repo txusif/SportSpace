@@ -20,7 +20,7 @@ export async function getTurfs() {
 
 export async function getTurf(id: number) {
     const supabase = createClient();
-    
+
     const { data, error } = await supabase
         .from('turfs')
         .select('*')

@@ -32,6 +32,7 @@ export function LoginForm() {
                 name="email"
                 type="email"
                 placeholder="johndoe@example.com"
+                value="defin41745@konetas.com"
                 required
               />
             </div>
@@ -45,7 +46,13 @@ export function LoginForm() {
                   Forgot your password?
                 </Link> */}
               </div>
-              <Input id="password" name="password" type="password" required />
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                value="12345678"
+                required
+              />
             </div>
             <Button type="submit" formAction={login} className="w-full">
               Login
