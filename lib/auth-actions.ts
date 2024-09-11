@@ -83,3 +83,14 @@ export async function signInWithGoogle() {
 
     redirect(data.url);
 }
+
+export async function getCurrentUser() {
+    const supabase = createClient();
+    const user = await supabase.auth.getUser();
+
+    if (!user) {
+        redirect("/login");
+    }
+
+    return user;
+}
