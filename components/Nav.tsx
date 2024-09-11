@@ -7,16 +7,16 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 import { LuMenu } from "react-icons/lu";
 import { Button } from "./ui/button";
 import LoginButton from "./LoginLogoutButton";
+import User from "./User";
 
 export const navLinks = [
   { label: "turfs", href: "/turfs" },
   { label: "about", href: "/about" },
-  { label: "account", href: "/account" },
+  // { label: "account", href: "/account" },
 ];
 
 const Nav = () => {
   const path = usePathname();
-
   return (
     <>
       <nav className="hidden md:flex items-center gap-16">
@@ -35,6 +35,10 @@ const Nav = () => {
               </Link>
             </li>
           ))}
+
+          <li>
+            <User path={path} />
+          </li>
         </ul>
         <ToggleTheme />
       </nav>

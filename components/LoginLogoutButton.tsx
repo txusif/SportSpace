@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/utils/supabase/client";
 import { signout } from "@/lib/auth-actions";
+import { createClient } from "@/utils/supabase/client";
+import { useAuth } from "@/context/AuthContext";
+import { SupabaseUser } from "@/context/SupabaseUserTypes";
 
 const LoginButton = () => {
-  const [user, setUser] = useState<any>(null);
+  const { user, handleUser } = useAuth();
   const router = useRouter();
   const supabase = createClient();
   useEffect(() => {
@@ -15,16 +17,17 @@ const LoginButton = () => {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-      setUser(user);
+      handleUser(user as SupabaseUser);
     };
     fetchUser();
   }, []);
+
   if (user) {
     return (
       <Button
         onClick={() => {
           signout();
-          setUser(null);
+          handleUser(null);
         }}
       >
         Log out

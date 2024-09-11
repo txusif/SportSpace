@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { signInWithGoogle } from "@/lib/auth-actions";
-import React from "react";
 
 const SignInWithGoogleButton = () => {
   return (
@@ -14,11 +14,11 @@ const SignInWithGoogleButton = () => {
         signInWithGoogle();
       }}
     >
-      <img
+      <Image
         src="https://authjs.dev/img/providers/google.svg"
         alt="Google logo"
-        height="18"
-        width="18"
+        height={18}
+        width={18}
       />
       <span>Continue with Google</span>
     </Button>

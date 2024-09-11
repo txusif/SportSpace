@@ -10,11 +10,9 @@ import { buttonVariants } from "@/components/ui/button";
 import { TypographyH4 } from "./typography/Typography";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 
 const TurfCard = ({ turf }: { turf: TurfProps }) => {

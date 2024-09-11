@@ -9,7 +9,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  // CardTitle,
 } from "@/components/ui/card";
 import ImageCarousel from "@/components/ImageCarousel";
 import BookingCalender from "@/components/BookingCalender";

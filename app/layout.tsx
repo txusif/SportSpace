@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Container from "@/components/Container";
 import Header from "@/components/Header";
+import { AuthProvider } from "@/context/AuthContext";
 
 const opensans = Open_Sans({
   subsets: ["latin"],
@@ -25,15 +26,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${opensans.className} bg-background text-accent-foreground relative flex min-h-screen flex-col antialiased`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <Header />
-          <Container>{children}</Container>
-        </ThemeProvider>
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang="en">
+        <body
+          className={`${opensans.className} bg-background text-accent-foreground relative flex min-h-screen flex-col antialiased`}
+        >
+          <ThemeProvider attribute="class" defaultTheme="dark">
+            <Header />
+            <Container>{children}</Container>
+          </ThemeProvider>
+        </body>
+      </html>
+    </AuthProvider>
   );
 }
