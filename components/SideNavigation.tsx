@@ -38,12 +38,12 @@ const SideNavigation = () => {
               }`}
             >
               {link.icon}
-              <span>{link.name}</span>
+              <span className="hidden lg:block">{link.name}</span>
             </Link>
           </li>
         ))}
 
-        <li className="mt-auto px-5 py-3 hidden md:flex">
+        <li className="mt-auto lg:px-5 py-3 hidden md:flex">
           <LoginButton />
         </li>
       </ul>

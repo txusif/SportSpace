@@ -1,3 +1,4 @@
+import { TypographyH3 } from "@/components/typography/Typography";
 import { getCurrentUser } from "@/lib/auth-actions";
 import { Metadata } from "next";
 
@@ -11,8 +12,8 @@ export default async function AccountPage() {
   } = await getCurrentUser();
 
   return (
-    <h2 className="text-2xl font-semibold text-primary mb-7">
+    <TypographyH3>
       Welcome, {user?.user_metadata.full_name.split(" ")[0]}
-    </h2>
+    </TypographyH3>
   );
 }

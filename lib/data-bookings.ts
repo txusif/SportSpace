@@ -7,6 +7,7 @@ export async function getAllBookings() {
     const { data, error } = await supabase
         .from('bookings')
         .select('*')
+        .order('created_at', { ascending: false })
 
     if (error) {
         console.error(error)
@@ -25,6 +26,7 @@ export async function getUserBookings(bookedBy: string) {
         .from('bookings')
         .select('*')
         .eq('bookedBy', bookedBy)
+        .order('created_at', { ascending: false })
 
     if (error) {
         console.error(error)

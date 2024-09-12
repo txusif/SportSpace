@@ -1,23 +1,45 @@
 import { Metadata } from "next";
 import UpdateProfileForm from "@/components/UpdateProfileForm";
+import {
+  TypographyH3,
+  // TypographyMutedBold,
+} from "@/components/typography/Typography";
+import { getProfile } from "@/lib/data-profile";
+import { getCurrentUser } from "@/lib/auth-actions";
+import UpdateAvatar from "@/components/UpdateAvatar";
 
 export const metadata: Metadata = {
   title: "Profile",
 };
 
-export default function ProfilePage() {
+export interface ProfileProps {
+  id: string;
+  full_name: string;
+  email: string;
+  avatar_url?: string;
+  phone_number?: string;
+}
+
+export default async function ProfilePage() {
+  const {
+    data: { user },
+  } = await getCurrentUser();
+
+  const userProfile: ProfileProps = await getProfile(user!.id);
+
   return (
     <div>
-      <h2 className="text-2xl font-semibold text-primary mb-7">
-        Update your guest profile
-      </h2>
+      <TypographyH3>Update your profile</TypographyH3>
 
-      <p className="mb-5 text-base text-primary-200 lg:mb-8 lg:text-lg">
+      {/* <TypographyMutedBold>
         Providing the following information will make your check-in process
         faster and smoother. See you soon!
-      </p>
+      </TypographyMutedBold> */}
 
-      <UpdateProfileForm />
+      <div className="mt-6 grid lg:grid-cols-2 gap-12">
+        <UpdateProfileForm user={userProfile} />
+        <UpdateAvatar />
+      </div>
     </div>
   );
 }

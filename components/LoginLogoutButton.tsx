@@ -33,7 +33,7 @@ const LoginButton = () => {
         className="flex items-center gap-1 font-semibold text-base"
       >
         <LuLogOut size={20} />
-        <span>Log out</span>
+        <span className="hidden lg:block">Log out</span>
       </Button>
     );
   }
@@ -45,7 +45,7 @@ const LoginButton = () => {
       className="flex items-center gap-1 font-semibold text-base"
     >
       <LuLogIn size={20} />
-      <span>Login</span>
+      <span className="hidden lg:block">Login</span>
     </Button>
   );
 };
