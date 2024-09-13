@@ -16,11 +16,12 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { ProfileProps } from "@/app/account/profile/page";
+import { updateProfileAction } from "@/lib/updateProfile-action";
 
 const formSchema = z.object({
   full_name: z.string().min(3).max(100),
   email: z.string().email(),
-  phone_number: z.string().max(10),
+  phone_number: z.string().max(10, { message: "Invalid phone number" }),
 });
 
 const UpdateProfileForm = ({ user }: { user: ProfileProps }) => {
@@ -30,16 +31,21 @@ const UpdateProfileForm = ({ user }: { user: ProfileProps }) => {
     defaultValues: {
       full_name: user.full_name,
       email: user.email,
-      phone_number: "",
+      phone_number: user.phone_number,
     },
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const formData = new FormData();
+
+    formData.append("full_name", values.full_name);
+    formData.append("email", values.email);
+    formData.append("phone_number", values.phone_number);
+
+    await updateProfileAction(formData);
   }
+
   return (
     <Card>
       <CardContent className="p-6">
