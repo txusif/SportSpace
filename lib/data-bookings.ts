@@ -56,3 +56,26 @@ export async function getBooking(id: number) {
 
     return data;
 }
+
+export async function getBookedSlotsByTurfId(turfId: number) {
+    const supabase = createClient();
+
+    const { data, error } = await supabase
+        .from("bookings")
+        .select("*")
+        .eq("turfId", turfId)
+
+    if (error) {
+        console.error(error)
+        throw new Error("Error loading the booked slots");
+    }
+
+    // help me make a bookedSlots object that consists of date and time
+
+    const bookedSlots = data.map((booking) => {
+        const { date, time } = booking;
+        return { date, time };
+    });
+
+    return bookedSlots;
+}

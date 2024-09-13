@@ -6,9 +6,26 @@ import {
   BsFillMoonFill,
 } from "react-icons/bs";
 import Slot from "./Slot";
-import { TurfProps } from "@/app/turfs/[turfId]/page";
+import { BookedSlot, TurfProps } from "@/app/turfs/[turfId]/page";
 
-const TimeSlot = ({ prices }: { prices: TurfProps["prices"] }) => {
+const TimeSlot = ({
+  date,
+  time,
+  bookedSlots,
+  prices,
+  handleTimeSelect,
+  setTotalPrice,
+}: {
+  date: Date;
+  time: string;
+  bookedSlots: BookedSlot[];
+  prices: TurfProps["prices"];
+  handleTimeSelect: (time: string) => void;
+  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+}) => {
+
+  const bookedTimes = bookedSlots.map((slot) => slot.time);
+
   return (
     <Card className="rounded-md shadow">
       <CardContent className="p-3 flex flex-col gap-4">
@@ -22,6 +39,10 @@ const TimeSlot = ({ prices }: { prices: TurfProps["prices"] }) => {
             "9:00 - 10:00",
             "10:00 - 11:00",
           ]}
+          time={time}
+          bookedTime={bookedTimes}
+          handleTimeSelect={handleTimeSelect}
+          setTotalPrice={setTotalPrice}
         />
         <Slot
           icon={<BsFillSunFill />}
@@ -33,6 +54,10 @@ const TimeSlot = ({ prices }: { prices: TurfProps["prices"] }) => {
             "14:00 - 15:00",
             "15:00 - 16:00",
           ]}
+          time={time}
+          bookedTime={bookedTimes}
+          handleTimeSelect={handleTimeSelect}
+          setTotalPrice={setTotalPrice}
         />
 
         <Slot
@@ -40,13 +65,26 @@ const TimeSlot = ({ prices }: { prices: TurfProps["prices"] }) => {
           slotName="Evening slot"
           price={prices.eveningPrice}
           timeSlots={["17:00 - 18:00", "18:00 - 19:00", "19:00 - 20:00"]}
+          time={time}
+          bookedTime={bookedTimes}
+          handleTimeSelect={handleTimeSelect}
+          setTotalPrice={setTotalPrice}
         />
 
         <Slot
           icon={<BsFillMoonFill />}
           slotName="Night slot"
           price={prices.nightPrice}
-          timeSlots={["20:00 - 21:00", "21:00 - 22:00", "23:00 - 00:00"]}
+          timeSlots={[
+            "20:00 - 21:00",
+            "21:00 - 22:00",
+            "22:00 - 23:00",
+            "23:00 - 00:00",
+          ]}
+          time={time}
+          bookedTime={bookedTimes}
+          handleTimeSelect={handleTimeSelect}
+          setTotalPrice={setTotalPrice}
         />
       </CardContent>
     </Card>

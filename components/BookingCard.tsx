@@ -20,7 +20,7 @@ export const formatDistanceFromNow = (dateStr: string) =>
   }).replace("about ", "");
 
 const BookingCard = async ({ booking }: { booking: Booking }) => {
-  const { created_at, date, turfPrice, time, numSlots } = booking;
+  const { created_at, date, turfPrice, time } = booking;
 
   const turf = await getTurf(booking.turfId);
   const { images, name }: { images: string[]; name: string } = turf;
@@ -60,21 +60,17 @@ const BookingCard = async ({ booking }: { booking: Booking }) => {
           </div>
           <TypographyMutedBold>
             {format(new Date(date), "EEE, MMM dd yyyy")} (
-            {isToday(new Date(`${date} + ${time[0].split("-")[0]}`))
+            {isToday(new Date(`${date} ${time.split("-")[0]}`))
               ? "Today"
               : formatDistanceFromNow(
-                  new Date(`${date} ${time[0].split("-")[0]}`).toISOString()
+                  new Date(`${date} ${time.split("-")[0]}`).toISOString()
                 )}
             )
           </TypographyMutedBold>
-          <div className="flex items-center gap-2 mt-2 md:mt-0">
-            <TypographyMutedBold>
-              {numSlots} {numSlots > 1 ? "slots" : "slot"}
-            </TypographyMutedBold>
 
+          <div className="mt-2 md:mt-0">
             <Badge variant={"secondary"} className="w-max">
-              {time[0].split("-")[0]} &mdash;{" "}
-              {time[time.length - 1].split("-")[1]}
+              {time}
             </Badge>
           </div>
         </div>
@@ -111,7 +107,7 @@ const BookingCard = async ({ booking }: { booking: Booking }) => {
 
         {/* Actions */}
         <div className="flex flex-row md:flex-col max-sm:justify-between md:justify-center divide-x md:divide-y md:border-l md:w-28 text-muted-foreground ">
-          {!isPast(date) ? (
+          {!isPast(new Date(`${date} + ${time.split("-")[0]}`)) ? (
             <>
               <div className="max-sm:border-t flex justify-center items-center max-sm:w-full h-full">
                 <Button variant={"ghost"} className="uppercase space-x-1.5">

@@ -19,28 +19,21 @@ export async function createBookingAction(formData: FormData) {
             "Unauthorized: You need to be signed in to create a booking",
         );
 
-    console.log("formData");
-    console.log(formData);
+    const bookingData = { bookedBy: user.id, ...Object.fromEntries(formData) };
 
-    // const bookingData = {};
-
-    // const { data, error } = await supabase.from('bookings')
-    //     .insert([bookingData])
-    //     .select().single();
+    const { data, error } = await supabase.from('bookings')
+        .insert([bookingData])
+        .select().single();
 
 
-    // if (error) {
-    //     console.error(error);
-    //     throw new Error("Booking could not be created");
-    // }
+    if (error) {
+        console.error(error);
+        throw new Error("Booking could not be created");
+    }
 
-    // console.log("Booking created");
-    // console.log(data);
+    console.log("Booking created");
+    console.log(data);
 
-
-    // return { data, error }
-
-    // revalidatePath(`cabins/${bookingData.cabinId}`);
-    // redirect("/turfs/thankyou");
-    return null;
+    revalidatePath(`turfs/${data.turfId}`);
+    redirect("/turfs/thankyou");
 }

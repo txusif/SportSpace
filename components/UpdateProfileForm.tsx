@@ -21,7 +21,11 @@ import { updateProfileAction } from "@/lib/updateProfile-action";
 const formSchema = z.object({
   full_name: z.string().min(3).max(100),
   email: z.string().email(),
-  phone_number: z.string().max(10, { message: "Invalid phone number" }),
+  avatar_url: z.string().optional(),
+  phone_number: z
+    .string()
+    .max(10, { message: "Invalid phone number" })
+    .optional(),
 });
 
 const UpdateProfileForm = ({ user }: { user: ProfileProps }) => {
@@ -31,6 +35,7 @@ const UpdateProfileForm = ({ user }: { user: ProfileProps }) => {
     defaultValues: {
       full_name: user.full_name,
       email: user.email,
+      avatar_url: user.avatar_url,
       phone_number: user.phone_number,
     },
   });
@@ -39,15 +44,17 @@ const UpdateProfileForm = ({ user }: { user: ProfileProps }) => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const formData = new FormData();
 
-    formData.append("full_name", values.full_name);
-    formData.append("email", values.email);
-    formData.append("phone_number", values.phone_number);
+    if (values.avatar_url) {
+      formData.append("avatar_url", values.avatar_url);
+    }
+
+    formData.append("phone_number", values.phone_number ?? "");
 
     await updateProfileAction(formData);
   }
 
   return (
-    <Card>
+    <Card className="mt-6">
       <CardContent className="p-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -93,21 +100,37 @@ const UpdateProfileForm = ({ user }: { user: ProfileProps }) => {
                 </FormItem>
               )}
             />
-
-            {/* <FormField
+            {/* 
+            <FormField
               control={form.control}
               name="avatar_url"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Phone number</FormLabel>
+                  <FormLabel>Avatar</FormLabel>
                   <FormControl>
-                    <Input type="file" placeholder="+91" {...field} />
+                    <Input {...field} />
                   </FormControl>
 
                   <FormMessage />
                 </FormItem>
               )}
             /> */}
+
+            <FormField
+              control={form.control}
+              name="avatar_url"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Avatar</FormLabel>
+                  <FormControl>
+                    <Input type="file" {...field} />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             <Button type="submit">Submit</Button>
           </form>
         </Form>

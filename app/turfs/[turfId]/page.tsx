@@ -11,12 +11,11 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import ImageCarousel from "@/components/ImageCarousel";
-import BookingCalender from "@/components/BookingCalender";
 import Rules from "@/components/Rules";
 import Reviews from "@/components/Reviews";
-import TimeSlot from "@/components/TimeSlot";
-import Booking from "@/components/Booking";
-import { getAllBookings } from "@/lib/data-bookings";
+
+import { getBookedSlotsByTurfId } from "@/lib/data-bookings";
+import BookingForm from "@/components/BookingForm";
 
 export const revalidate = 0;
 
@@ -63,6 +62,11 @@ export interface TurfProps {
   surfaceType: string;
 }
 
+export interface BookedSlot {
+  date: string;
+  time: string;
+}
+
 export default async function Turf({
   params: { turfId },
 }: {
@@ -70,7 +74,7 @@ export default async function Turf({
 }) {
   const turf: TurfProps = await getTurf(Number(turfId));
 
-  const bookings = await getAllBookings();
+  const bookings = await getBookedSlotsByTurfId(Number(turfId));
 
   return (
     <div>
@@ -82,7 +86,8 @@ export default async function Turf({
             <div className="flex items-start justify-between">
               {/* <CardTitle>{turf.name}</CardTitle> */}
               <TypographyH1>
-                {turf.name} ({bookings.length})
+                {turf.name}
+                {/* ({bookedSlots.length}) */}
               </TypographyH1>
 
               <Badge variant={"rating"}>
@@ -130,31 +135,7 @@ export default async function Turf({
       <Rules rules={turf.rules} />
 
       {/* Booking */}
-      <div className="mt-10">
-        <h2 className="text-primary scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-          Book Your Slot
-        </h2>
-
-        <div className="flex flex-col lg:flex-row gap-6 mt-2">
-          <div>
-            <Card className="w-max">
-              <CardContent className="p-4 flex flex-col md:flex-row gap-6 md:gap-8">
-                {/* Calender */}
-                <BookingCalender />
-                {/* Time slot */}
-                <TimeSlot prices={turf.prices} />
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Booking details */}
-          <Card className="hidden lg:flex grow">
-            <CardContent className="p-4 flex w-full justify-center items-center">
-              <Booking />
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+      <BookingForm turf={turf} bookedSlots={bookings} />
 
       {/* Reviews */}
       <Reviews />

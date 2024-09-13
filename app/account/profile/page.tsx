@@ -36,10 +36,10 @@ export default async function ProfilePage() {
         faster and smoother. See you soon!
       </TypographyMutedBold> */}
 
-      <div className="mt-6 grid lg:grid-cols-2 gap-12">
+      {/* <div className="mt-6 grid lg:grid-cols-2 gap-12"> */}
         <UpdateProfileForm user={userProfile} />
-        <UpdateAvatar />
-      </div>
+        {/* <UpdateAvatar /> */}
+      {/* </div> */}
     </div>
   );
 }

@@ -1,19 +1,22 @@
-"use client";
-
-import { useState } from "react";
 import { Calendar } from "./ui/calendar";
 
-const BookingCalender = () => {
-  const [date, setDate] = useState<Date | undefined>(new Date());
-
+const BookingCalender = ({
+  date,
+  isSoldOut,
+  handleSelect,
+}: {
+  date: Date;
+  isSoldOut: boolean;
+  handleSelect: any;
+}) => {
   return (
     <Calendar
       mode="single"
       selected={date}
-      onSelect={setDate}
+      onSelect={handleSelect}
       disableNavigation
       showOutsideDays
-      disabled={(date) => date < new Date()}
+      disabled={(date) => date < new Date() }
       className="rounded-md md:border shadow w-max mx-auto"
     />
   );

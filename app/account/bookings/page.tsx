@@ -1,22 +1,11 @@
 import {
-  TypographyH2,
   TypographyH3,
-  TypographyH4,
-  TypographyMuted,
   TypographyMutedBold,
-  TypographyP,
 } from "@/components/typography/Typography";
-import { Badge } from "@/components/ui/badge";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { getUserBookings } from "@/lib/data-bookings";
 import { createClient } from "@/utils/supabase/server";
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { LuIndianRupee } from "react-icons/lu";
-import { HiPencilSquare, HiTrash } from "react-icons/hi2";
-import { getTurf } from "@/lib/data-turf";
 import BookingCard from "@/components/BookingCard";
 
 export const metadata: Metadata = {
@@ -27,8 +16,7 @@ export interface Booking {
   id: number;
   created_at: string;
   date: string;
-  numSlots: number;
-  time: string[];
+  time: string;
   turfPrice: number;
   isPaid: boolean;
   status: string;
