@@ -6,7 +6,7 @@ export async function getTurfs() {
 
     const { data, error } = await supabase
         .from('turfs')
-        .select('id, name, images, rating, football, cricket, discount, prices, location, surfaceType').order("name")
+        .select('id, name, images, football, cricket, discount, prices, location, surfaceType,reviews').order("name")
 
     if (error) {
         console.error(error)

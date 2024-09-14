@@ -16,6 +16,15 @@ import {
 } from "@/components/ui/card";
 
 const TurfCard = ({ turf }: { turf: TurfProps }) => {
+  const calculateRating = (reviews: TurfProps["reviews"]) => {
+    let totalStars = 0;
+    reviews.forEach((review) => {
+      totalStars += review.stars;
+    });
+
+    return (totalStars / reviews.length).toFixed(1);
+  };
+
   return (
     <Card className="grid sm:grid-cols-1 lg:grid-cols-2 flex-1">
       <div className="relative max-lg:h-[200px]">
@@ -24,6 +33,7 @@ const TurfCard = ({ turf }: { turf: TurfProps }) => {
           alt={`Image of ${turf.name}`}
           fill
           className="object-cover max-lg:rounded-t-md lg:rounded-l-md"
+          sizes="100%"
         />
         {turf.discount > 0 && (
           <Badge className="absolute uppercase right-1 top-1 font-semibold text-sm">
@@ -39,7 +49,7 @@ const TurfCard = ({ turf }: { turf: TurfProps }) => {
 
             <Badge variant={"rating"}>
               <LuStar fill="yellow" size={18} strokeWidth={0} />
-              <p className="">{turf.rating}</p>
+              <p className="">{calculateRating(turf.reviews)}</p>
             </Badge>
           </div>
           <CardDescription className="pt-3">

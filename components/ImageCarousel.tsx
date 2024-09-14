@@ -22,6 +22,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
                   alt="Image"
                   fill
                   className="object-cover max-lg:rounded-t-md lg:rounded-l-md"
+                  sizes="100%"
                 />
               </CardContent>
             </Card>

@@ -7,9 +7,11 @@ import BookingCalender from "./BookingCalender";
 import Booking from "./Booking";
 import { TurfProps } from "@/app/turfs/[turfId]/page";
 import { format } from "date-fns";
+import { TypographyH2 } from "./typography/Typography";
 
 const BookingForm = ({
   turf,
+
   bookedSlots,
 }: {
   turf: TurfProps;
@@ -42,9 +44,7 @@ const BookingForm = ({
 
   return (
     <div className="mt-10">
-      <h2 className="text-primary scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-        Book Your Slot
-      </h2>
+      <TypographyH2 className="text-primary">Book Your Slot</TypographyH2>
 
       <div className="flex flex-col lg:flex-row gap-6 mt-2">
         <div>

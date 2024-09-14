@@ -56,7 +56,6 @@ export interface TurfProps {
     nightPrice: number;
   };
   discount: number;
-  rating: number;
   location: {
     address: string;
     mapLink: string;
@@ -65,6 +64,11 @@ export interface TurfProps {
   contactInfo: { phone: string; email: string };
   availability: { openTime: string; closeTime: string };
   surfaceType: string;
+  reviews: {
+    username: string;
+    text: string;
+    stars: number;
+  }[];
 }
 
 export interface BookedSlot {
@@ -77,6 +81,15 @@ export default async function Turf({
 }: {
   params: { turfId: string };
 }) {
+  const calculateRating = (reviews: TurfProps["reviews"]) => {
+    let totalStars = 0;
+    reviews.forEach((review) => {
+      totalStars += review.stars;
+    });
+
+    return (totalStars / reviews.length).toFixed(1);
+  };
+
   const turf: TurfProps = await getTurf(Number(turfId));
 
   const bookings = await getBookedSlotsByTurfId(Number(turfId));
@@ -97,7 +110,7 @@ export default async function Turf({
 
               <Badge variant={"rating"}>
                 <LuStar fill="yellow" size={18} strokeWidth={0} />
-                <p className="">{turf.rating}</p>
+                <p className="">{calculateRating(turf.reviews)}</p>
               </Badge>
             </div>
             <CardDescription className="pt-2">
@@ -157,7 +170,7 @@ export default async function Turf({
       <BookingForm turf={turf} bookedSlots={bookings} />
 
       {/* Reviews */}
-      <Reviews />
+      <Reviews reviews={turf.reviews} turfId={turf.id} />
     </div>
   );
 }

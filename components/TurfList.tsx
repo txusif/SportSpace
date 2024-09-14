@@ -5,7 +5,6 @@ export interface TurfProps {
   id: number;
   name: string;
   images: string[];
-  rating: number;
   football: boolean;
   cricket: boolean;
   discount: number;
@@ -19,6 +18,11 @@ export interface TurfProps {
     mapLink: string;
   };
   surfaceType: string;
+  reviews: {
+    username: string;
+    stars: number;
+    text: string;
+  }[];
 }
 
 const TurfList = async ({ filter }: { filter: string }) => {
