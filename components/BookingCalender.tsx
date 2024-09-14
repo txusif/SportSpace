@@ -2,11 +2,11 @@ import { Calendar } from "./ui/calendar";
 
 const BookingCalender = ({
   date,
-  isSoldOut,
+
   handleSelect,
 }: {
   date: Date;
-  isSoldOut: boolean;
+
   handleSelect: any;
 }) => {
   return (

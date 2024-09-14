@@ -33,10 +33,10 @@ const TurfList = async ({ filter }: { filter: string }) => {
       displayTurfs = turfs;
       break;
     case "football":
-      displayTurfs = turfs.filter((turf) => turf.football && !turf.cricket);
+      displayTurfs = turfs.filter((turf) => turf.football || !turf.cricket);
       break;
     case "cricket":
-      displayTurfs = turfs.filter((turf) => turf.cricket && !turf.football);
+      displayTurfs = turfs.filter((turf) => turf.cricket || !turf.football);
       break;
   }
 

@@ -9,7 +9,7 @@ interface SlotProps {
   slotName: string;
   price: number;
   timeSlots: string[];
-  bookedTime:string[];
+  bookedTime: string[];
   handleTimeSelect: (time: string) => void;
   time?: string;
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
@@ -25,8 +25,6 @@ const Slot = ({
   handleTimeSelect,
   setTotalPrice,
 }: SlotProps) => {
-  // console.log(bookedTime);
-
   return (
     <div className="flex flex-col gap-3 items-center">
       <TypographyMuted>

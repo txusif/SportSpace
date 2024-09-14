@@ -31,6 +31,7 @@ const formSchema = z.object({
 const UpdateProfileForm = ({ user }: { user: ProfileProps }) => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
+    mode: "onBlur",
     resolver: zodResolver(formSchema),
     defaultValues: {
       full_name: user.full_name,

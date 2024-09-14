@@ -54,7 +54,6 @@ const BookingForm = ({
               <BookingCalender
                 date={selectedDate}
                 handleSelect={setSelectedDate}
-                isSoldOut={isSoldOut}
               />
               {/* Time slot */}
               <TimeSlot
@@ -78,6 +77,8 @@ const BookingForm = ({
               handleTimeReset={handleClearTime}
               totalPrice={price}
               turfId={turf.id}
+              isSoldOut={isSoldOut}
+              discount={turf.discount}
             />
           </CardContent>
         </Card>

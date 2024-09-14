@@ -10,12 +10,16 @@ const Booking = ({
   time,
   handleTimeReset,
   totalPrice,
+  isSoldOut,
+  discount,
 }: {
   turfId: number;
   date: Date;
   time: string;
   totalPrice: number;
   handleTimeReset: () => void;
+  isSoldOut: boolean;
+  discount: number;
 }) => {
   const { user } = useAuth();
 
@@ -25,11 +29,13 @@ const Booking = ({
 
   return (
     <BookingDetails
-    turfId={turfId}
+      turfId={turfId}
       date={date}
       time={time}
       totalPrice={totalPrice}
       handleTimeReset={handleTimeReset}
+      isSoldOut={isSoldOut}
+      discount={discount}
     />
   );
 };

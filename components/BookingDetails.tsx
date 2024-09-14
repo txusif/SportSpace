@@ -10,18 +10,26 @@ import { format } from "date-fns";
 import { createBookingAction } from "@/lib/booking-actions";
 import SubmitButton from "./SubmitButton";
 
+function priceAfterDiscount(price: number, discount: number) {
+  return price - (price * discount) / 100;
+}
+
 const BookingDetails = ({
   turfId,
   date,
   time,
   totalPrice,
   handleTimeReset,
+  isSoldOut,
+  discount,
 }: {
   turfId: number;
   date: Date;
   time: string;
   totalPrice: number;
   handleTimeReset: () => void;
+  isSoldOut: boolean;
+  discount: number;
 }) => {
   const bookingData = {
     date: format(new Date(date), "yyyy-MM-dd"),
@@ -37,6 +45,18 @@ const BookingDetails = ({
   formData.append("turfId", bookingData.turfId.toString());
 
   const createBookingWithData = createBookingAction.bind(null, formData);
+
+  if (isSoldOut) {
+    return (
+      <div>
+        <TypographyMutedBold>
+          <LuCalendarDays />
+          {format(new Date(date), "EEEE, do MMMM yyyy")}
+        </TypographyMutedBold>
+        <TypographyH4>All the slots are sold out</TypographyH4>
+      </div>
+    );
+  }
 
   return (
     <form
@@ -73,7 +93,17 @@ const BookingDetails = ({
               <LuIndianRupee />
               Total
             </TypographyMutedBold>
-            <TypographyH2>{totalPrice}</TypographyH2>
+            <div className="flex gap-1.5">
+              <TypographyH2>
+                {priceAfterDiscount(totalPrice, discount)}
+              </TypographyH2>
+
+              {discount > 0 && (
+                <TypographyMutedBold className="line-through">
+                  {totalPrice}
+                </TypographyMutedBold>
+              )}
+            </div>
           </div>
           <div className="flex gap-2">
             <Button onClick={handleTimeReset} variant={"outline"}>

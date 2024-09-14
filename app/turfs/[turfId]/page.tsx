@@ -2,7 +2,12 @@ import { getTurf, getTurfs } from "@/lib/data-turf";
 
 import { Badge } from "@/components/ui/badge";
 import { LuMapPin, LuStar } from "react-icons/lu";
-import { TypographyH1 } from "@/components/typography/Typography";
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoMail } from "react-icons/io5";
+import {
+  TypographyH1,
+  TypographyMutedBold,
+} from "@/components/typography/Typography";
 import {
   Card,
   CardContent,
@@ -118,15 +123,29 @@ export default async function Turf({
           <CardFooter className="flex flex-col gap-4 items-start">
             <div className="flex items-center gap-1.5">
               <LuMapPin size={20} className="text-muted-foreground" />
-              <p className="tetxt-sm">{turf.location.address}</p>
+              <p className="text-sm">{turf.location.address}</p>
             </div>
-            <a
-              href={turf.location.mapLink}
-              target="_blank"
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 ml-6"
-            >
-              Map view
-            </a>
+            <div className="md:w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <a
+                href={turf.location.mapLink}
+                target="_blank"
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 ml-6 w-max"
+              >
+                Map view
+              </a>
+
+              <div className="flex flex-col gap-1">
+                <TypographyMutedBold>
+                  <FaPhoneAlt size={16} className="text-muted-foreground" />
+                  <span className="text-sm">{turf.contactInfo.phone}</span>
+                </TypographyMutedBold>
+
+                <TypographyMutedBold>
+                  <IoMail size={16} className="text-muted-foreground" />
+                  <span className="text-sm">{turf.contactInfo.email}</span>
+                </TypographyMutedBold>
+              </div>
+            </div>
           </CardFooter>
         </div>
       </Card>

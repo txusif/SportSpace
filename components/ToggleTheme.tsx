@@ -13,6 +13,7 @@ export function ToggleTheme() {
     <Button
       variant="themeButton"
       size="icon"
+      className="rounded-full"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       {theme === "light" ? <LuMoon size={22} /> : <LuSun size={22} />}

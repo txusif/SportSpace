@@ -12,7 +12,7 @@ export default async function AccountPage() {
   } = await getCurrentUser();
 
   return (
-    <TypographyH3>
+    <TypographyH3 >
       Welcome, {user?.user_metadata.full_name.split(" ")[0]}
     </TypographyH3>
   );

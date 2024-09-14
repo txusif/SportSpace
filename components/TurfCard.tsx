@@ -25,6 +25,11 @@ const TurfCard = ({ turf }: { turf: TurfProps }) => {
           fill
           className="object-cover max-lg:rounded-t-md lg:rounded-l-md"
         />
+        {turf.discount > 0 && (
+          <Badge className="absolute uppercase right-1 top-1 font-semibold text-sm">
+            {turf.discount} &#37; off
+          </Badge>
+        )}
       </div>
       <div>
         <CardHeader>
@@ -44,6 +49,7 @@ const TurfCard = ({ turf }: { turf: TurfProps }) => {
         {/* <CardDescription>{turf.surfaceType}</CardDescription> */}
         <CardFooter className="flex justify-between">
           <PriceBadge prices={turf.prices} />
+
           <Link
             href={`/turfs/${turf.id}`}
             className={buttonVariants({ variant: "default" })}

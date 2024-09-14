@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import Container from "@/components/Container";
@@ -29,7 +30,10 @@ export default function RootLayout({
     <AuthProvider>
       <html lang="en">
         <body
-          className={`${opensans.className} bg-background text-accent-foreground relative flex min-h-screen flex-col antialiased`}
+          className={cn(
+            "bg-background text-accent-foreground relative flex min-h-screen flex-col antialiased",
+            opensans.className
+          )}
         >
           <ThemeProvider attribute="class" defaultTheme="dark">
             <Header />
