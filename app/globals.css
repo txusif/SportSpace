@@ -25,7 +25,6 @@ body {
   }
 }
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -93,6 +92,14 @@ body {
     @apply bg-background text-foreground;
   }
 
+  .text-outline {
+    -webkit-text-stroke: 1px #ffffff;
+  }
+
+  .text-outline-hover {
+    -webkit-text-stroke: 1px #00ff99;
+  }
+
   /* Remove scrollbar */
   .remove-scrollbar::-webkit-scrollbar {
     width: 0px;
@@ -113,5 +120,7 @@ body {
     /* background: #1e2238; */
     background: transparent;
   }
+
+
 
 }

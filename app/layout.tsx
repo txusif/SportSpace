@@ -15,10 +15,10 @@ const opensans = Open_Sans({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | BookMyTurf",
-    default: "Home | BookMyTurf",
+    template: "%s | SportSpace",
+    default: "Home | SportSpace",
   },
-  description: "BookMyTurf is a platform to book turfs for sports events.",
+  description: "SportSpace is a platform to book turfs for sports events.",
 };
 
 export default function RootLayout({

@@ -2,7 +2,7 @@ import Link from "next/link";
 // import Image from "next/image";
 
 import { buttonVariants } from "@/components/ui/button";
-import { TypographyH1 } from "@/components/typography/Typography";
+import { TypographyH1, TypographyH4 } from "@/components/typography/Typography";
 // import bgImage from "@/public/images/turf-background.jpg";
 
 export default function HomePage() {
@@ -17,14 +17,17 @@ export default function HomePage() {
         className="object-cover object-center opacity-90"
       /> */}
 
-      <div className="relative z-10 text-center space-y-4">
-        <TypographyH1>Welcome to BookMyTurf</TypographyH1>
+      <div className="relative z-10 text-center space-y-2">
+        <TypographyH1 className="text-2xl">Welcome to SportSpace</TypographyH1>
+        <TypographyH4 className="max-sm:text-base">
+          Book Cricket and Football Turfs Effortlessly.
+        </TypographyH4>
 
         <Link
           href="/turfs"
           className={buttonVariants({ variant: "default", size: "xl" })}
         >
-          Explore turfs
+          Find Your Turf Now
         </Link>
       </div>
     </div>

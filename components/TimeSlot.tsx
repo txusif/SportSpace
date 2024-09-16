@@ -15,6 +15,7 @@ const TimeSlot = ({
   prices,
   handleTimeSelect,
   setTotalPrice,
+  setOpen,
 }: {
   date: Date;
   time: string;
@@ -22,8 +23,8 @@ const TimeSlot = ({
   prices: TurfProps["prices"];
   handleTimeSelect: (time: string) => void;
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+  setOpen: (open: boolean) => void;
 }) => {
-
   const bookedTimes = bookedSlots.map((slot) => slot.time);
 
   return (
@@ -43,6 +44,7 @@ const TimeSlot = ({
           bookedTime={bookedTimes}
           handleTimeSelect={handleTimeSelect}
           setTotalPrice={setTotalPrice}
+          setOpen={setOpen}
         />
         <Slot
           icon={<BsFillSunFill />}
@@ -58,6 +60,7 @@ const TimeSlot = ({
           bookedTime={bookedTimes}
           handleTimeSelect={handleTimeSelect}
           setTotalPrice={setTotalPrice}
+          setOpen={setOpen}
         />
 
         <Slot
@@ -69,6 +72,7 @@ const TimeSlot = ({
           bookedTime={bookedTimes}
           handleTimeSelect={handleTimeSelect}
           setTotalPrice={setTotalPrice}
+          setOpen={setOpen}
         />
 
         <Slot
@@ -85,6 +89,7 @@ const TimeSlot = ({
           bookedTime={bookedTimes}
           handleTimeSelect={handleTimeSelect}
           setTotalPrice={setTotalPrice}
+          setOpen={setOpen}
         />
       </CardContent>
     </Card>

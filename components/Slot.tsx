@@ -2,7 +2,6 @@ import { ReactElement } from "react";
 import { TypographyMuted } from "./typography/Typography";
 import { LuIndianRupee } from "react-icons/lu";
 import { IconType } from "react-icons/lib";
-import { BookedSlot } from "@/app/turfs/[turfId]/page";
 
 interface SlotProps {
   icon: ReactElement<IconType>;
@@ -13,6 +12,7 @@ interface SlotProps {
   handleTimeSelect: (time: string) => void;
   time?: string;
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+  setOpen: (open: boolean) => void;
 }
 
 const Slot = ({
@@ -24,6 +24,7 @@ const Slot = ({
   timeSlots,
   handleTimeSelect,
   setTotalPrice,
+  setOpen,
 }: SlotProps) => {
   return (
     <div className="flex flex-col gap-3 items-center">
@@ -50,6 +51,7 @@ const Slot = ({
             key={index}
             onClick={() => {
               handleTimeSelect(slot), setTotalPrice(price);
+              setOpen(true);
             }}
             className={`items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none border-transparent flex justify-center h-8 disabled:opacity-50 disabled:bg-destructive disabled:text-destructive-foreground ${
               time?.includes(slot)

@@ -16,7 +16,7 @@ export default function AboutPage() {
     <div className="flex flex-col items-center gap-y-5 lg:grid lg:grid-cols-5 lg:gap-x-24 lg:gap-y-32">
       <div className="col-span-3 order-2 lg:order-none">
         <h1 className="text-2xl font-medium text-primary mb-3 lg:mb-10 lg:text-4xl">
-          Welcome to BookMyTurf
+          Welcome to SportSpace
         </h1>
         <div className="space-y-4">
           <TypographyP>

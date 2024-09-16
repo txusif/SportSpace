@@ -8,6 +8,7 @@ import { LuMenu } from "react-icons/lu";
 import { Button } from "./ui/button";
 import LoginButton from "./LoginLogoutButton";
 import User from "./User";
+import { TypographyH1 } from "./typography/Typography";
 
 export const navLinks = [
   { label: "turfs", href: "/turfs" },
@@ -46,8 +47,8 @@ const Nav = () => {
       <div className="block md:hidden">
         <Sheet>
           <SheetTrigger className="flex items-center justify-center" asChild>
-            <Button variant="outline" size="icon">
-              <LuMenu size={28} className="text-primary" />
+            <Button variant="ghost" size="icon">
+              <LuMenu size={40} className="text-primary" />
             </Button>
           </SheetTrigger>
           <SheetContent className="flex flex-col items-center justify-center gap-24">
@@ -55,9 +56,14 @@ const Nav = () => {
               <SheetClose asChild>
                 <Link
                   href="/"
-                  className="text-3xl text-primary font-semibold tracking-wider"
+                  className="text-3xl text-primary font-semibold tracking-wider space-x-0.5"
                 >
-                  BookMyTurf
+                  <TypographyH1 className="font-black uppercase text-center tracking-tighter space-x-0.5">
+                    <span>Sport</span>
+                    <span className="text-white bg-primary pl-0.5 pr-1">
+                      Space
+                    </span>
+                  </TypographyH1>
                 </Link>
               </SheetClose>
             </div>
@@ -81,10 +87,10 @@ const Nav = () => {
                   </li>
                 ))}
 
-                <li> 
-                <SheetClose asChild>
-                  <User path={path} />
-                </SheetClose>
+                <li>
+                  <SheetClose asChild>
+                    <User path={path} />
+                  </SheetClose>
                 </li>
 
                 <SheetClose>

@@ -8,10 +8,10 @@ import Booking from "./Booking";
 import { TurfProps } from "@/app/turfs/[turfId]/page";
 import { format } from "date-fns";
 import { TypographyH2 } from "./typography/Typography";
+import BookingDrawer from "./BookingDrawer";
 
 const BookingForm = ({
   turf,
-
   bookedSlots,
 }: {
   turf: TurfProps;
@@ -20,6 +20,7 @@ const BookingForm = ({
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedTime, setSelectedTime] = useState<string>("");
   const [price, setPrice] = useState<number>(0);
+  const [open, setOpen] = useState(false);
 
   const bookedSlotsByDate = bookedSlots.filter(
     (slot) => slot.date === format(selectedDate, "yyyy-MM-dd")
@@ -40,6 +41,7 @@ const BookingForm = ({
   function handleClearTime() {
     setSelectedTime("");
     setPrice(0);
+    setOpen(false);
   }
 
   return (
@@ -63,6 +65,7 @@ const BookingForm = ({
                 time={selectedTime}
                 handleTimeSelect={handleTimeSelect}
                 setTotalPrice={setPrice}
+                setOpen={setOpen}
               />
             </CardContent>
           </Card>
@@ -79,9 +82,23 @@ const BookingForm = ({
               turfId={turf.id}
               isSoldOut={isSoldOut}
               discount={turf.discount}
+              setOpen={setOpen}
             />
           </CardContent>
         </Card>
+
+        <div className="lg:hidden">
+          <BookingDrawer
+            date={selectedDate}
+            time={selectedTime}
+            handleTimeReset={handleClearTime}
+            totalPrice={price}
+            turfId={turf.id}
+            isSoldOut={isSoldOut}
+            discount={turf.discount}
+            open={open}
+          />
+        </div>
       </div>
     </div>
   );

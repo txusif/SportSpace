@@ -1,16 +1,15 @@
-import Link from "next/link";
 import {
   TypographyH2,
   TypographyH4,
   TypographyMutedBold,
 } from "./typography/Typography";
-import { LuCalendarDays, LuClock, LuHash, LuIndianRupee } from "react-icons/lu";
-import { Button, buttonVariants } from "./ui/button";
+import { LuCalendarDays, LuClock, LuIndianRupee } from "react-icons/lu";
+import { Button } from "./ui/button";
 import { format } from "date-fns";
 import { createBookingAction } from "@/lib/booking-actions";
 import SubmitButton from "./SubmitButton";
 
-function priceAfterDiscount(price: number, discount: number) {
+export function priceAfterDiscount(price: number, discount: number) {
   return price - (price * discount) / 100;
 }
 
