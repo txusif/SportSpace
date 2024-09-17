@@ -9,7 +9,7 @@ import Slot from "./Slot";
 import { BookedSlot, TurfProps } from "@/app/turfs/[turfId]/page";
 
 const TimeSlot = ({
-  date,
+  // date,
   time,
   bookedSlots,
   prices,
@@ -17,7 +17,7 @@ const TimeSlot = ({
   setTotalPrice,
   setOpen,
 }: {
-  date: Date;
+  // date: Date;
   time: string;
   bookedSlots: BookedSlot[];
   prices: TurfProps["prices"];

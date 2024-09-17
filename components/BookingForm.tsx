@@ -59,7 +59,6 @@ const BookingForm = ({
               />
               {/* Time slot */}
               <TimeSlot
-                date={selectedDate}
                 bookedSlots={bookedSlotsByDate}
                 prices={turf.prices}
                 time={selectedTime}
@@ -82,7 +81,6 @@ const BookingForm = ({
               turfId={turf.id}
               isSoldOut={isSoldOut}
               discount={turf.discount}
-              setOpen={setOpen}
             />
           </CardContent>
         </Card>

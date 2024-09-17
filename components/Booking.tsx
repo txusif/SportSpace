@@ -12,7 +12,6 @@ const Booking = ({
   totalPrice,
   isSoldOut,
   discount,
-  setOpen,
 }: {
   turfId: number;
   date: Date;
@@ -21,7 +20,6 @@ const Booking = ({
   handleTimeReset: () => void;
   isSoldOut: boolean;
   discount: number;
-  setOpen: (open: boolean) => void;
 }) => {
   const { user } = useAuth();
 

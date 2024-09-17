@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Turfs",
 };
 
-export const revalidate = 0; // 0 seconds ie no revalidation
+// export const revalidate = 0; // 0 seconds ie no revalidation
 // export const revalidate = 3600; // 1 hour
 
 export default function TurfsPage({

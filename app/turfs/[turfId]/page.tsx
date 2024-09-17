@@ -22,7 +22,7 @@ import Reviews from "@/components/Reviews";
 import { getBookedSlotsByTurfId } from "@/lib/data-bookings";
 import BookingForm from "@/components/BookingForm";
 
-export const revalidate = 0;
+// export const revalidate = 0;
 
 export async function generateMetadata({
   params,
