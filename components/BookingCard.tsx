@@ -1,7 +1,6 @@
 import { LuIndianRupee } from "react-icons/lu";
 import {
   TypographyH2,
-  TypographyH3,
   TypographyH4,
   TypographyMutedBold,
 } from "./typography/Typography";

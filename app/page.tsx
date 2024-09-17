@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { buttonVariants } from "@/components/ui/button";
 import { TypographyH1, TypographyH4 } from "@/components/typography/Typography";
-// import bgImage from "@/public/images/turf-background.jpg";
+// import bgImage from "@/public/images/football-group-10b.jpeg";
 
 export default function HomePage() {
   return (

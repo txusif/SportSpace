@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
+  // FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -21,7 +21,7 @@ import { updateProfileAction } from "@/lib/updateProfile-action";
 const formSchema = z.object({
   full_name: z.string().min(3).max(100),
   email: z.string().email(),
-  avatar_url: z.string().optional(),
+  // avatar_url: z.string().optional(),
   phone_number: z
     .string()
     .max(10, { message: "Invalid phone number" })
@@ -36,7 +36,7 @@ const UpdateProfileForm = ({ user }: { user: ProfileProps }) => {
     defaultValues: {
       full_name: user.full_name,
       email: user.email,
-      avatar_url: user.avatar_url,
+      // avatar_url: user.avatar_url,
       phone_number: user.phone_number,
     },
   });
@@ -45,9 +45,9 @@ const UpdateProfileForm = ({ user }: { user: ProfileProps }) => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const formData = new FormData();
 
-    if (values.avatar_url) {
-      formData.append("avatar_url", values.avatar_url);
-    }
+    // if (values.avatar_url) {
+    //   formData.append("avatar_url", values.avatar_url);
+    // }
 
     formData.append("phone_number", values.phone_number ?? "");
 
@@ -117,7 +117,7 @@ const UpdateProfileForm = ({ user }: { user: ProfileProps }) => {
               )}
             /> */}
 
-            <FormField
+            {/* <FormField
               control={form.control}
               name="avatar_url"
               render={({ field }) => (
@@ -130,7 +130,7 @@ const UpdateProfileForm = ({ user }: { user: ProfileProps }) => {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
 
             <Button type="submit">Submit</Button>
           </form>

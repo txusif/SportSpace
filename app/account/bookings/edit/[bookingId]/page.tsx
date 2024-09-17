@@ -1,7 +1,4 @@
-import {
-  TypographyH3,
-  TypographyMutedBold,
-} from "@/components/typography/Typography";
+import { TypographyMutedBold } from "@/components/typography/Typography";
 import { getBooking } from "@/lib/data-bookings";
 import { getProfile } from "@/lib/data-profile";
 

@@ -6,7 +6,7 @@ import {
 } from "@/components/typography/Typography";
 import { getProfile } from "@/lib/data-profile";
 import { getCurrentUser } from "@/lib/auth-actions";
-import UpdateAvatar from "@/components/UpdateAvatar";
+// import UpdateAvatar from "@/components/UpdateAvatar";
 
 export const metadata: Metadata = {
   title: "Profile",
@@ -37,8 +37,8 @@ export default async function ProfilePage() {
       </TypographyMutedBold> */}
 
       {/* <div className="mt-6 grid lg:grid-cols-2 gap-12"> */}
-        <UpdateProfileForm user={userProfile} />
-        {/* <UpdateAvatar /> */}
+      <UpdateProfileForm user={userProfile} />
+      {/* <UpdateAvatar /> */}
       {/* </div> */}
     </div>
   );

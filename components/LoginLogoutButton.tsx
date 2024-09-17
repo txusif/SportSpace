@@ -21,7 +21,7 @@ const LoginButton = () => {
       handleUser(user as SupabaseUser);
     };
     fetchUser();
-  }, []);
+  }, [supabase.auth, handleUser]);
 
   if (user) {
     return (

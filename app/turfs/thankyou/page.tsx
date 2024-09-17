@@ -1,5 +1,4 @@
 import { TypographyH2 } from "@/components/typography/Typography";
-import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function page() {

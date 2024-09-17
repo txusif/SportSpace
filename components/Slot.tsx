@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import { TypographyMuted } from "./typography/Typography";
 import { LuIndianRupee } from "react-icons/lu";
 import { IconType } from "react-icons/lib";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 interface SlotProps {
   icon: ReactElement<IconType>;
@@ -26,6 +27,8 @@ const Slot = ({
   setTotalPrice,
   setOpen,
 }: SlotProps) => {
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
   return (
     <div className="flex flex-col gap-3 items-center">
       <TypographyMuted>
@@ -51,7 +54,7 @@ const Slot = ({
             key={index}
             onClick={() => {
               handleTimeSelect(slot), setTotalPrice(price);
-              setOpen(true);
+              !isDesktop && setOpen(true);
             }}
             className={`items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none border-transparent flex justify-center h-8 disabled:opacity-50 disabled:bg-destructive disabled:text-destructive-foreground ${
               time?.includes(slot)

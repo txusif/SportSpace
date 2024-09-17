@@ -9,7 +9,7 @@ const LogoutPage = () => {
 
   useEffect(() => {
     setTimeout(() => router.push("/"), 1000);
-  }, []);
+  }, [router]);
 
   return (
     <div className="mt-28 lg:mt-24">
