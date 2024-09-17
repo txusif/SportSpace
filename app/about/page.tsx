@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import aboutFootball from "@/public/images/aboutFootball.jpg";
-import aboutTennis from "@/public/images/aboutTennis.jpg";
+import aboutImage1Cricket from "@/public/images/cricket-play4.jpeg";
+import aboutImage2Football from "@/public/images/football-play4.jpeg";
 import { buttonVariants } from "@/components/ui/button";
 import { TypographyP } from "@/components/typography/Typography";
 
@@ -42,7 +42,7 @@ export default function AboutPage() {
 
       <div className="col-span-2 order-1 lg:order-none">
         <Image
-          src={aboutFootball}
+          src={aboutImage1Cricket}
           alt="Turf image 1"
           quality={100}
           placeholder="blur"
@@ -52,7 +52,7 @@ export default function AboutPage() {
 
       <div className="col-span-2 order-3 lg:order-none mt-10 lg:mt-0">
         <Image
-          src={aboutTennis}
+          src={aboutImage2Football}
           alt="Turf image 2"
           quality={100}
           placeholder="blur"
