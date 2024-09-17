@@ -15,8 +15,6 @@ export async function updateProfileAction(formData: FormData) {
             "Unauthorized: You need to be signed in to update your profile",
         );
 
-    // console.log(formData);
-
     const bookingData = {
         phone_number: formData.get("phone_number"),
     };
